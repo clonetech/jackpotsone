@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '9nj*pq!g^bevkc#5pgeofn(hu=%knu
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['jackpotsone.herokuapp.com']
+ALLOWED_HOSTS = ['jackpotsone.herokuapp.com','127.0.0.1','www.jackpotsone.com']
 
 
 # Application definition
