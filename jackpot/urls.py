@@ -3,6 +3,7 @@ from django.conf import settings
 from . views import home, punter, hexabet, payment, results, jackpot, welcome, signup
 from . import views
 from . import views as core_views
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 app_name = 'jackpot'
