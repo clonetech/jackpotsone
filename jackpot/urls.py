@@ -9,7 +9,7 @@ from django.contrib.auth import views as auth_views
 app_name = 'jackpot'
 
 urlpatterns = [
-    path('', views.home, name='home'),
+
     path('home', views.home, name='home'),
     path('punter/', views.punter, name='punter'),
     path('hexabet/', views.hexabet, name='hexabet'),
@@ -20,4 +20,5 @@ urlpatterns = [
     path('login/', auth_views.login, name='login'),
     path('logout/', auth_views.logout, name='logout'),
     path('signup/', core_views.signup, name='signup'),
+    
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

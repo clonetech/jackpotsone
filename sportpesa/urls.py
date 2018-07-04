@@ -4,8 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+
     path('jackpotken/', admin.site.urls),
     path('', include('jackpot.urls')),
+
 ]
 
 if settings.DEBUG:
