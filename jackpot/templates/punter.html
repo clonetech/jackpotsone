@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Sportpesajp - Vip Services
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<ul>
+
+<div style='color: white' align = "right">  WELCOME {{ user.username }}
+<br>
+
+ <a style='color: #FA0319' href="{% url 'jackpot:logout' %}">LOG OUT</a>
+
+ <li style="float:left"><a href="/jackpot/" style="text-decoration:none"> Jackpot </a></li>
+ <li style="float:left"><a href="/punter/" style="text-decoration:none"> Punter </a></li>
+
+
+
+</ul>
+
+<div align = "center" >
+
+  <h2 style="color:red">
+    Odds Of The Day
+</h2>
+
+{% for item in punter %}
+
+  {% if forloop.first %}
+         <i><h4>{{item.published_date}}<h4></i>
+     {%endif%}
+  {% endfor %}
+
+  <table border="2" cellpadding = "5">
+
+    <tr style='background-color: #002147'>
+  <th style='color: white'>Country</th>
+  <th style='color: white'>Home Team</th>
+  <th style='color: white'>Home Score</th>
+  <th style='color: white'>Away Score</th>
+  <th style='color: white'>Away Team</th>
+  <th style='color: white'>Safety</th>
+  <th style='color: white'>Prediction</th>
+  <th style='color: white'>Status</th>
+  </tr>
+
+      {% for item in punter %}
+      <tr>
+          <td style='background-color: #87CEEB;' >{{ item.country }}</td>
+
+          <td >{{ item.home_team }}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.home_score}}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.away_score}}</td>
+
+          <td>{{ item.away_team}}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.prediction}}</td>
+
+          {% if item.status == 'Lost' %}
+
+          <td style='background-color: #FF5733;'>{{ item.status}}</td>
+
+          {% elif item.status == 'Won' %}
+
+          <td style='background-color: Limegreen;' >{{ item.status}}</td>
+
+          {% else %}
+
+          <td >{{ item.status}}</td>
+
+          {% endif %}
+
+
+      </tr>
+      {% endfor %}
+  </table>
+
+
+  <p align = "right">
+    <i>Good Luck</i>
+  </p>
+
+</div>
+
+
+{% else %}
+
+  <p>You are not logged in</p>
+
+  <a href="{% url 'login' %}">login</a>
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "footer.html" %}
+
+{% endblock %}

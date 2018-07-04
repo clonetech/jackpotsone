@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+JackpotSone.com - provides free football tips and predictions, jackpot analysis, free analysis, football form and statistics, Sportpesa Jackpot,  Prediction site, Correct football matches prediction, Sportpesa games today, sportpesa games analysis, Winning sports tips| Best football prediction, Analysis and tips
+
+
+{% endblock %}
+
+{% block header %}
+
+{% include "header.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<h2 style="color:red">
+  Recent Soccer Results
+</h2>
+
+{% for group in results_teams %}
+
+{% for item in group %}
+{% if forloop.first %}
+       <i><h4>{{item.published_date}}<h4></i>
+   {%endif%}
+{% endfor %}
+
+<table border="2" cellpadding = "5">
+
+  <tr style='background-color: #002147'>
+<th style='color: white'>Country</th>
+<th style='color: white'>Home Team</th>
+<th style='color: white'>Home Score</th>
+<th style='color: white'>Away Score</th>
+<th style='color: white'>Away Team</th>
+<th style='color: white'>Prediction</th>
+<th style='color: white'>Status</th>
+</tr>
+
+        {% for item in group %}
+
+        <tr>
+            <td style='background-color: #87CEEB;' >{{ item.country }}</td>
+
+            <td >{{ item.home_team }}</td>
+
+            <td style='background-color: #87CEEB;' >{{ item.home_score}}</td>
+
+            <td style='background-color: #87CEEB;' >{{ item.away_score}}</td>
+
+            <td>{{ item.away_team}}</td>
+
+            <td style='background-color: #87CEEB;' >{{ item.prediction}}</td>
+
+            {% if item.status == 'Lost' %}
+
+            <td style='background-color: #FF5733;'>{{ item.status}}</td>
+
+            {% elif item.status == 'Won' %}
+
+            <td style='background-color: Limegreen;' >{{ item.status}}</td>
+
+            {% else %}
+
+            <td >{{ item.status}}</td>
+
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+        </table>
+        <br>
+        <br>
+
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5b38f7934af8e57442dc3c8b/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+{% endfor %}
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "footer.html" %}
+
+{% endblock %}

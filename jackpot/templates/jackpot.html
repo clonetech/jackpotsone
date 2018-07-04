@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+JackpotSone - VIP Services
+
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<ul>
+
+<div style='color: white' align = "right">  WELCOME {{ user.username }}
+<br>
+
+ <a style='color: #FA0319' href="{% url 'jackpot:logout' %}">LOG OUT</a>
+
+<li style="float:left"><a href="/jackpot/" style="text-decoration:none"> Jackpot </a></li>
+<li style="float:left"><a href="/punter/" style="text-decoration:none"> Punter </a></li>
+
+
+
+</ul>
+
+<div align = "center" >
+
+  <h2 style="color:red">
+    Jackpot Analysis
+</h2>
+  {% for item in jackpot %}
+  {% if forloop.first %}
+         <i><h4>{{item.published_date}}<h4></i>
+     {%endif%}
+  {% endfor %}
+
+{% for item in jackpot %}
+
+<h3 style="color:lime">
+{{ item.content }}
+</h3>
+{% endfor %}
+
+
+  <table border="2" cellpadding = "5">
+
+    <tr style='background-color: #002147'>
+  <th style='color: white'>Country</th>
+  <th style='color: white'>Home Team</th>
+  <th style='color: white'>Away Team</th>
+  <th style='color: white'>Home Odds</th>
+  <th style='color: white'>Draw Odds</th>
+  <th style='color: white'>Away Odds</th>
+  <th style='color: white'>Prediction</th>
+
+  </tr>
+
+      {% for item in jackpot %}
+      <tr>
+          <td style='background-color: #87CEEB;' >{{ item.country }}</td>
+
+          <td >{{ item.home_team }}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.away_team}}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.home_odds}}</td>
+
+          <td>{{ item.draw_odds}}</td>
+
+          <td style='background-color: #87CEEB;' >{{ item.away_odds}}</td>
+
+          <td >{{ item.prediction}}</td>
+
+      </tr>
+      {% endfor %}
+  </table>
+
+
+  <p align = "right">
+    <i>Good Luck</i>
+  </p>
+
+</div>
+
+
+{% else %}
+
+  <p>You are not logged in</p>
+
+  <a href="{% url 'login' %}">login</a>
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "footer.html" %}
+
+{% endblock %}
