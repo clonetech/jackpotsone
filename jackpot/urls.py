@@ -11,6 +11,7 @@ app_name = 'jackpot'
 urlpatterns = [
 
     path('punter/', views.punter, name='punter'),
+    path('home/', views.home, name='home'),
     path('hexabet/', views.hexabet, name='hexabet'),
     path('payment/', views.payment, name='payment'),
     path('results/', views.results, name='results'),
