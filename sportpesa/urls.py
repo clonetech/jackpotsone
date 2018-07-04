@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('jackpotken/', admin.site.urls),
-    path('home/', include('jackpot.urls')),
+    path('/', include('jackpot.urls')),
 ]
 
 if settings.DEBUG:
