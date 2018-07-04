@@ -10,6 +10,7 @@ app_name = 'jackpot'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('home', views.home, name='home'),
     path('punter/', views.punter, name='punter'),
     path('hexabet/', views.hexabet, name='hexabet'),
     path('payment/', views.payment, name='payment'),
