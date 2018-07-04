@@ -1,6 +1,6 @@
 from django.urls import path
 from django.conf import settings
-from . views import home, punter, hexabet, payment, results, jackpot, welcome, login, logout, signup
+from . views import home, punter, hexabet, payment, results, jackpot, welcome, signup
 from . import views
 from . import views as core_views
 from django.contrib.auth import views as auth_views
