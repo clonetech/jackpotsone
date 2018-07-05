@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('home/', views.home, name='home'),
     path('punter/', views.punter, name='punter'),
+    path('singlebet/', views.singlebet, name='singlebet'),
     path('hexabet/', views.hexabet, name='hexabet'),
     path('payment/', views.payment, name='payment'),
     path('results/', views.results, name='results'),

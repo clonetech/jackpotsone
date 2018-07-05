@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.utils import timezone
-from . models import Punter, Hexabet, Jackpot
+from . models import Punter, Hexabet, Jackpot, Singlebet
 from django.contrib.auth import login, authenticate
 from django.views.decorators.csrf import csrf_protect
 from .forms import SignUpForm
@@ -89,6 +89,22 @@ def results(request):
     args ['results_teams'] = grouped(results_teams, 6)
 
     return render(request, 'results.html', args)
+
+
+def singlebet(request):
+
+    template_name = 'singlebet.html'
+
+    args = {}
+
+    singlebet = Singlebet.objects.filter(
+        published_date__lte=timezone.now()
+    ).order_by('-published_date')[:7]
+
+
+    args ['singlebet'] = grouped(singlebet, 1)
+
+    return render(request, 'singlebet.html', args)
 
 
 def grouped(l, n):
