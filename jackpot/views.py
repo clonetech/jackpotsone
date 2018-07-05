@@ -65,12 +65,12 @@ def hexabet(request):
 
     args = {}
 
-    hexabet_teams = Hexabet.objects.filter(
+    hexabet = Hexabet.objects.filter(
         published_date__lte=timezone.now()
     ).order_by('-published_date')[:6]
 
 
-    args ['hexabet_teams'] = hexabet_teams
+    args ['hexabet'] = hexabet
 
     return render(request, 'hexabet.html', args)
 
