@@ -53,6 +53,7 @@ class Singlebet(models.Model):
 class Jackpot(models.Model):
     published_date = models.DateTimeField('Date Published')
     content = models.TextField(null=True, blank=True)
+    no = models.CharField(max_length = 200)
     country = models.CharField(max_length = 200)
     home_team = models.CharField(max_length = 200)
     away_team = models.CharField(max_length = 200)

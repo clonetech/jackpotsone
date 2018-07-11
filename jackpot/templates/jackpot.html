@@ -46,6 +46,7 @@ JackpotSone - VIP Services
   <table border="2" cellpadding = "5">
 
     <tr style='background-color: #002147'>
+  <th style='color: white'>No.</th>
   <th style='color: white'>Country</th>
   <th style='color: white'>Home Team</th>
   <th style='color: white'>Away Team</th>
@@ -58,6 +59,8 @@ JackpotSone - VIP Services
 
       {% for item in jackpot %}
       <tr>
+          <td style='background-color: #9EB9D4;'>{{ item.no }}</td>
+
           <td style='background-color: #87CEEB;' >{{ item.country }}</td>
 
           <td >{{ item.home_team }}</td>
