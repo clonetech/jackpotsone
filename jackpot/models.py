@@ -57,9 +57,6 @@ class Jackpot(models.Model):
     country = models.CharField(max_length = 200)
     home_team = models.CharField(max_length = 200)
     away_team = models.CharField(max_length = 200)
-    home_odds = models.DecimalField(max_digits=30, decimal_places=2)
-    draw_odds = models.DecimalField(max_digits=30, decimal_places=2)
-    away_odds = models.DecimalField(max_digits=30, decimal_places=2)
     prediction = models.CharField(max_length = 100)
 
 
