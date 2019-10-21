@@ -3,7 +3,7 @@ chardet==3.0.4
 dj-database-url==0.5.0
 django-filter==1.1.0
 django-bootstrap3==10.0.1
-djangorestframework==3.8.2
+djangorestframework==3.9.1
 Django==2.0.6
 gunicorn==19.8.1
 idna==2.7
